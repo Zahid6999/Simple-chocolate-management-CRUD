@@ -1,0 +1,101 @@
+.newChocolate-container {
+  background: rgba(20, 20, 20, 0.05);
+  width: 1112px;
+  height: 668px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  margin: 20px 300px;
+}
+.link-para a {
+  text-decoration: none;
+  display: flex;
+
+  align-items: center;
+  gap: 8px;
+  margin: 0 300px;
+}
+.newChocolate-container h2 {
+  color: #141414;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-top: 48px;
+  margin-bottom: 2px;
+}
+.newChocolate-container p {
+  color: rgba(20, 20, 20, 0.6);
+  text-align: center;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 0;
+}
+.form-control {
+  margin: 32px 120px;
+}
+.form-control label {
+  color: rgba(20, 20, 20, 0.8);
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.form-control input {
+  width: 886px;
+  height: 64px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  margin-top: 16px;
+  color: rgba(20, 20, 20, 0.3);
+  background: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 20px;
+}
+.form-control input:focus {
+  border: none;
+}
+.select {
+  width: 895px;
+  height: 64px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  margin-top: 16px;
+  color: rgba(20, 20, 20, 0.3);
+  background: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 20px;
+}
+
+.submit-btn {
+  width: 886px;
+  height: 64px;
+  border-radius: 8px;
+  background: #91572b;
+  border: none;
+  color: #fff;
+  margin: 32px 120px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.submit-btn:hover {
+  background: #b06022;
+}
