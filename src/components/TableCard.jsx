@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/TableCard.css";
+import { Link } from "react-router-dom";
 
 const TableCard = ({ chocolates, handleDelete }) => {
   const { _id, name, country, select } = chocolates;
@@ -18,7 +19,9 @@ const TableCard = ({ chocolates, handleDelete }) => {
       </div>
       <div className="action">
         <button onClick={() => handleDelete(_id)}>x</button>
-        <h6>Update</h6>
+        <Link to={`/updatePage/${_id}`}>
+          <h6>Update</h6>
+        </Link>
       </div>
     </div>
   );

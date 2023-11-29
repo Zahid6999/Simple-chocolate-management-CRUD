@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./layouts/Main";
 import AllChocolate from "./components/AllChocolate";
 import NewChocolate from "./components/NewChocolate";
+import UpdatePage from "./components/UpdatePage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,12 @@ const router = createBrowserRouter([
       {
         path: "/new-chocolate",
         element: <NewChocolate />,
+      },
+      {
+        path: "/updatePage/:id",
+        element: <UpdatePage />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/chocolate/${params.id}`),
       },
     ],
   },
