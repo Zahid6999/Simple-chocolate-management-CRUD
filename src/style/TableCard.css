@@ -1,0 +1,44 @@
+.table-head {
+  display: flex;
+  justify-content: space-between;
+}
+.table-head h2 {
+  color: rgba(20, 20, 20, 0.8);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background: rgba(211, 249, 116, 0.851);
+}
+.table-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-body h6 {
+  color: rgba(20, 20, 20, 0.6);
+  margin: 7px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.action {
+  display: flex;
+  gap: 16px;
+}
+.action button:hover {
+  background: rgb(238, 61, 61);
+  border-radius: 30px;
+}
+.action h6 {
+  padding: 10px 15px;
+}
+.action h6:hover {
+  background: rgb(70, 238, 61);
+  border-radius: 18px;
+}

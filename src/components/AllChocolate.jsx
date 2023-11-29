@@ -1,8 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/AllChocolate.css";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import TableCard from "./TableCard";
+import Swal from "sweetalert2";
 
 const AllChocolate = () => {
+  const loadedChocolate = useLoaderData();
+  const [chocolates, setChocolates] = useState(loadedChocolate);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you really want to delete this record?",
+      // icon: "warning",
+      imageUrl: "https://i.ibb.co/4WHpjhk/Group-27.png",
+      showCancelButton: true,
+      confirmButtonColor: "#F24500",
+      cancelButtonColor: "#14141480",
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/chocolate/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.acknowledged) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Chocolate has been deleted.",
+                icon: "success",
+              });
+              const remaining = chocolates?.filter((choco) => choco._id !== id);
+              setChocolates(remaining);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div className="chocolate-container">
       <button>
@@ -101,6 +137,22 @@ const AllChocolate = () => {
           </svg>
         </Link>
       </button>
+
+      <section>
+        <section className="table-head">
+          <h2>Name</h2>
+          <h2>Country</h2>
+          <h2>Select</h2>
+          <h2>Action</h2>
+        </section>
+        {chocolates?.map((chocolates) => (
+          <TableCard
+            key={chocolates._id}
+            chocolates={chocolates}
+            handleDelete={handleDelete}
+          ></TableCard>
+        ))}
+      </section>
     </div>
   );
 };

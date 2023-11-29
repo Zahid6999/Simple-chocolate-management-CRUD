@@ -1,6 +1,7 @@
 import React from "react";
 import "../style/NewChocolate.css";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const NewChocolate = () => {
   // HandleSubmit--------------------
@@ -10,6 +11,28 @@ const NewChocolate = () => {
     const name = form.name.value;
     const country = form.country.value;
     const select = form.select.value;
+    const chocolates = { name, country, select };
+
+    fetch("http://localhost:5000/chocolate", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(chocolates),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Your Chocolet has been Added Now",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      });
   };
   return (
     <div>
